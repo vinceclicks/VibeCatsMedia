@@ -1,0 +1,10 @@
+.footer{
+    background-color: var(--true-black);
+    color: var(--mid-gray);
+
+    .footer-link{
+        &:hover{
+            color: var(--background-gray);
+        }
+    }
+}

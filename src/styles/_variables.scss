@@ -1,0 +1,23 @@
+:root {
+  --light-blue: #d1f7ff;
+  --dark-blue: #0da5c7;
+
+  --light-orange: #FFE0C9;
+  --dark-orange: #F79A4D;
+
+  --true-white: #ffffff;
+  --background-gray: #F5F6FC;
+  --mid-gray: #8d8d8d;
+  --true-black: #000000;
+}
+
+.vc-color-true-white{
+    color: var(--true-white);
+}
+.vc-color-true-black{
+    color: var(--true-black);
+}
+
+.vc-background-background-gray{
+    background-color: var(--background-gray);
+}

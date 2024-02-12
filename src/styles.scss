@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/variables";
+@use "./styles/prime";
+@use "./styles/utility";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter var", sans-serif;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.75rem; //60px
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h2 {
+  font-size: 3.375rem; //54px
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h3 {
+  font-size: 2.5rem; //40px
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h4 {
+  font-size: 1.5rem; //24px
+}
+h5 {
+  font-size: 1.25rem; //20px
+}
+p {
+  font-size: 1.125rem; //18px
+  font-family: "Inter var", sans-serif;
+}
+
+///////////////////////////////////////////////////////////////
+/// Footer
+.footer-divider {
+  &:before {
+    border-color: #707070;
+  }
+}
+
+///////////////////////////////////////////////////////////////
+/// Media Sizes
+/// 
+/// sm: 576px
+/// md: 768px
+/// lg: 992px
+/// xl: 1200px
+
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 3rem; //48px
+  }
+  h2 {
+    font-size: 2.5rem; //40px
+  }
+  h3 {
+    font-size: 2rem; //32px
+  }
+  h4 {
+    font-size: 1.25rem; //20px
+  }
+  h5 {
+    font-size: 1.125rem; //18px
+  }
+  p {
+    font-size: 1rem; //16px
+  }
+}
