@@ -28,4 +28,4 @@ jobs:
       run: ng build --base-href "/"
 
     - name: Deploy to GitHub Pages
-      run: npx angular-cli-ghpages --dir=dist/vibecatsmedia-web-app --cname=vibecatsmedia.com
+      run: npx angular-cli-ghpages --dir=dist/vibecatsmedia-web-app/browser --cname=vibecatsmedia.com
