@@ -31,5 +31,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
+        # with:
           # If you have specific configurations for actions/deploy-pages, they can be added here
