@@ -5,27 +5,31 @@ on:
     branches:
       - main  # Adjust this to your default branch
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Source Code
-      uses: actions/checkout@v3
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'  # Specify the Node.js version
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Specify the Node.js version
+          cache: 'npm'
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Install Angular CLI
-      run: npm install -g @angular/cli
+      - name: Build Project
+        run: ng build --base-href "/"
 
-    - name: Build Project
-      run: ng build --base-href "/"
-
-    - name: Deploy to GitHub Pages
-      run: npx angular-cli-ghpages --dir=dist/vibecatsmedia-web-app/browser --cname=vibecatsmedia.com
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          # If you have specific configurations for actions/deploy-pages, they can be added here
