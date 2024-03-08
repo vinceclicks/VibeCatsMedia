@@ -27,5 +27,17 @@
   </head>
   <body>
     <app-root></app-root>
+    <script>
+      document.addEventListener("click", function (e) {
+        if (
+          e.target.matches("button") &&
+          e.target.closest("button").innerText.includes("Send")
+        ) {
+          gtag("event", "conversion", {
+            send_to: "AW-11437557211/hOzUCKnWmZoZENuL7c0q",
+          });
+        }
+      });
+    </script>
   </body>
 </html>
