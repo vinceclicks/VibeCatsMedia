@@ -5,6 +5,10 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact-us-page',
@@ -16,8 +20,11 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     InputTextModule,
     InputTextareaModule,
-    ButtonModule
+    ButtonModule,
+    ToastModule,
+    CommonModule
   ],
+  providers: [MessageService],
   templateUrl: './contact-us-page.component.html',
   styleUrl: './contact-us-page.component.scss'
 })
@@ -25,7 +32,7 @@ export class ContactUsPageComponent {
   form: FormGroup;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private messageService: MessageService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -49,7 +56,17 @@ export class ContactUsPageComponent {
 
     this.http.post('https://api.web3forms.com/submit', formData).subscribe({
       next: response => console.log(response),
-      error: error => console.error(error)
+      error: error => {
+        console.error(error)
+        this.messageService.add({
+          severity: 'error',
+          summary: 'An error occurred',
+          detail: error.error.message,
+          life: 10000,
+          closable: true,
+        })
+      },
+      complete: ()=> this.router.navigate(['contact-form-submitted'])
     });
   }
 }
