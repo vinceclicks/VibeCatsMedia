@@ -1,43 +1,11 @@
 <div class="contact-section flex justify-content-center align-items-center">
   <div class="standard-width flex justify-content-between flex-column-reverse pt-5 pb-7 lg:flex-row lg:mt-4">
     <div class="contact-form mr-7 w-full">
-      <h2 class="mb-5">Message</h2>
-      <form
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-        class="flex flex-column gap-5"
-      >
-        <div class="flex flex-column md:flex-row gap-5">
-          <input
-            pInputText
-            class="w-full"
-            formControlName="name"
-            placeholder="Name"
-            ngDefaultControl
-          />
-          <input
-            pInputText
-            class="w-full"
-            type="email"
-            formControlName="email"
-            placeholder="Email"
-            ngDefaultControl
-          />
-        </div>
-        <textarea
-          pInputTextarea
-          class="w-full"
-          formControlName="message"
-          placeholder="Message"
-        ></textarea>
-        <button
-          pButton
-          class="w-max"
-          type="submit"
-          label="Send"
-          [disabled]="form.invalid"
-        ></button>
-      </form>
+      <h2 class="mb-5">Thank You!</h2>
+      <p class="mb-5">
+        Your message was submitted successfully. Our team will be in touch with you soon!
+      </p>
+      <a pButton routerLink="/" class="w-max vc-color-true-white">Home</a>
     </div>
     <div class="w-max mr-7 mb-5 lg:mb-0">
       <h2 class="mb-5">Info</h2>
@@ -87,4 +55,3 @@
   </div>
 </div>
 <app-footer></app-footer>
-<p-toast></p-toast>
